@@ -77,10 +77,20 @@ function doOperation(op, num1, num2) {
   }
 }
 
+function checkPreference() {
+  if (!localStorage.getItem('preference')) {
+    localStorage.setItem('preference', 0);
+  }
+  setTheme(localStorage.getItem('preference'));
+}
+
+function setPreference(index) {
+  localStorage.setItem('preference', index);
+}
 
 document.addEventListener('DOMContentLoaded', function () {
-  setTheme(0);
-
+  checkPreference();
+  
   var theme1 = document.getElementById('1');
   var theme2 = document.getElementById('2');
   var theme3 = document.getElementById('3');
@@ -199,6 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   theme1.addEventListener('click', function () {
     if (theme1.checked === true) {
       toggle_btn.style.setProperty('left', '0');
+      setPreference(0);
       setTheme(0);
     }
   });
@@ -206,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
   theme2.addEventListener('click', function () {
     if (theme2.checked === true) {
       toggle_btn.style.setProperty('left', '22px');
+      setPreference(1);
       setTheme(1);
     }
   });
@@ -213,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
   theme3.addEventListener('click', function () {
     if (theme3.checked === true) {
       toggle_btn.style.setProperty('left', '44px');
+      setPreference(2);
       setTheme(2);
     }
   });

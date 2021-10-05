@@ -77,18 +77,34 @@ function doOperation(op, num1, num2) {
   }
 }
 
-function checkPreference() {
-  if (!localStorage.getItem('preference')) {
-    localStorage.setItem('preference', 0);
-  }
-  setTheme(localStorage.getItem('preference'));
-}
 
-function setPreference(index) {
-  localStorage.setItem('preference', index);
-}
+
 
 document.addEventListener('DOMContentLoaded', function () {
+  function checkPreference() {
+    if (!localStorage.getItem('preference')) {
+      localStorage.setItem('preference', 0);
+      setTheme(0);
+      theme1.checked = true;
+    }
+    setTheme(localStorage.getItem('preference'));
+    var pref = localStorage.getItem('preference');
+    if (pref === 0) {
+      theme1.checked = true;
+      toggle_btn.style.setProperty('left', '0');
+    } else if (pref === 1) {
+      theme2.checked = true;
+      toggle_btn.style.setProperty('left', '22px');
+    } else if (pref === 2) {
+      theme3.checked = true;
+      toggle_btn.style.setProperty('left', '44px');
+    }
+  }
+  
+  function setPreference(index) {
+    localStorage.setItem('preference', index);
+  }
+  
   checkPreference();
   
   var theme1 = document.getElementById('1');

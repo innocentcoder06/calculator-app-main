@@ -113,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
           res = '';
           op = '';
           sub_data.innerHTML = '';
+          main_data.innerHTML = '0';
         }
         if (num.length < 1 && val === '0') {
           return;

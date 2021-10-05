@@ -81,6 +81,12 @@ function doOperation(op, num1, num2) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+  var theme1 = document.getElementById('1');
+  var theme2 = document.getElementById('2');
+  var theme3 = document.getElementById('3');
+  var toggle_btn = document.getElementById('toggle_btn');
+  
+  
   function checkPreference() {
     if (!localStorage.getItem('preference')) {
       localStorage.setItem('preference', 0);
@@ -89,13 +95,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     setTheme(localStorage.getItem('preference'));
     var pref = localStorage.getItem('preference');
-    if (pref === 0) {
+    if (pref === '0') {
       theme1.checked = true;
       toggle_btn.style.setProperty('left', '0');
-    } else if (pref === 1) {
+    } else if (pref === '1') {
       theme2.checked = true;
       toggle_btn.style.setProperty('left', '22px');
-    } else if (pref === 2) {
+    } else if (pref === '2') {
       theme3.checked = true;
       toggle_btn.style.setProperty('left', '44px');
     }
@@ -107,10 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
   
   checkPreference();
   
-  var theme1 = document.getElementById('1');
-  var theme2 = document.getElementById('2');
-  var theme3 = document.getElementById('3');
-  var toggle_btn = document.getElementById('toggle_btn');
   var calc_disp = document.getElementById('calc_disp');
   var calc_main = document.getElementById('calc_main');
   var num = '';

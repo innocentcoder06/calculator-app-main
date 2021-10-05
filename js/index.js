@@ -146,7 +146,6 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       } else {
-        console.log(val);
         if (val === 'RESET') {
           main_data.innerHTML = '0';
           num = '';
@@ -184,16 +183,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (val === '-') {
               num += val;
               main_data.innerHTML = num;
-            } else if (val === '=') {
-              op = val;
-              main_data.innerHTML = res;
-              sub_data.innerHTML = op;
-              num = '';
-              res = '';
             }
             return;
           }
-          console.log(num, res);
           if (res === '') {
             if (dotFlag) {
               res = parseFloat(num);
